@@ -11,23 +11,13 @@ namespace BlackJack.dotnet6.Entities
 
         public Deck()
         {
-            List<string> Suits= new List<string>()
+          for(var i=0;i<13;i++)
             {
-                "Clubs","Hearts","Diamond","Spades"
-            };
-            List<string> Faces = new List<string>()
-            {
-                "Two","Three","Four","Fife","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"
-            };
-
-            foreach(string face in Faces)
-            {
-                foreach(string suit in Suits)
+                for(var j = 0; j < 4; j++)
                 {
-
-                    Card card = new Card();
-                    card.Face = face;
-                    card.Siut= suit;
+                    Card card= new Card();
+                    card.Siut = (Suit)j;//casting j into Suit
+                    card.Face = (Face)i;
                     Cards.Add(card);
                 }
             }

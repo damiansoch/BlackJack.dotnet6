@@ -12,6 +12,8 @@ namespace BlackJack.dotnet6.Entities
         public string Name { get; set; } = default!;
         public Dealer dealer { get; set; } = default!;
 
+        public abstract void printWelcomeMessage(string name);
+
         public abstract void Play();
 
         public virtual void ListPlayers()

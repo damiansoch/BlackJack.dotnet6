@@ -1,17 +1,36 @@
 ﻿using BlackJack.dotnet6.Entities;
+using System.Runtime.CompilerServices;
 
-Game game = new BlackJackGame();
+Console.WriteLine("Hello, What is your name?");
 
-Deck deck = new Deck();
-int timesShuffled = 0;
-deck.Shuffle(out timesShuffled, 4);
+string name = Console.ReadLine();
 
-foreach(Card card in deck.Cards)
+while (name == "" )
 {
-    Console.WriteLine($"{card.Face} of {card.Siut}");
+    Console.WriteLine("Please, type in your name!");
+    name= Console.ReadLine();
 }
-Console.WriteLine(deck.Cards.Count + ": Shuffled "+ timesShuffled +" times");
 
+Console.WriteLine("Would you like to play?");
+Console.WriteLine("Answer y or n");
 
-Console.ReadLine();
+string answer = Console.ReadLine();
+while (answer != "y" && answer != "n")
+{
+    Console.WriteLine("Answer y or n");
+    answer= Console.ReadLine();
+}
 
+if (answer == "n")
+{
+    Console.WriteLine("Thanks, Goodbye.");
+}
+else
+{
+    Player player = new Player() { Name = name, Balance = 1000, isActivelyPlaying = true };
+    BlackJackGame game = new BlackJackGame();
+    game .Players.Add(player);
+
+    game.printWelcomeMessage(name);
+    game.Play();
+}

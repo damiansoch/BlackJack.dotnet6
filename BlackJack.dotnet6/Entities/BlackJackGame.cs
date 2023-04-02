@@ -9,9 +9,13 @@ namespace BlackJack.dotnet6.Entities
 {
     public class BlackJackGame : Game,IWalkAway
     {
+        public override void printWelcomeMessage(string name)
+        {
+            Console.WriteLine($" \n Hello {name}! Welcome to the Black Jack game! \n");
+        }
         public override void Play()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("playing...");
         }
 
         public override void ListPlayers()
@@ -24,5 +28,6 @@ namespace BlackJack.dotnet6.Entities
         {
             throw new NotImplementedException();
         }
+
     }
 }
