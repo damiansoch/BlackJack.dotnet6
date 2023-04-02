@@ -35,7 +35,7 @@ namespace BlackJack.dotnet6.Entities
 
         public List<Card> Cards { get; set; } = new List<Card>() { };
 
-        public static Deck Shuffle (Deck deck ,out int timesShuffled, int howManyTimes = 1 )
+        public void Shuffle (out int timesShuffled, int howManyTimes = 1 )
         {
             timesShuffled = 0;
             for (var i = 0; i < howManyTimes; i++)
@@ -48,16 +48,16 @@ namespace BlackJack.dotnet6.Entities
                 for (var j = 0; j < 52; j++)
                 {
 
-                    var randomIndex = random.Next(0, deck.Cards.Count);
-                    var randomCard = deck.Cards[randomIndex];
+                    var randomIndex = random.Next(0, Cards.Count);
+                    var randomCard = Cards[randomIndex];
 
                     TempList.Add(randomCard);
-                    deck.Cards.RemoveAt(randomIndex);
+                    Cards.RemoveAt(randomIndex);
                 }
-                deck.Cards = TempList;
+                Cards = TempList;
                 
             }
-           return deck;
+           
         }
 
         ///OVERLOADNIG NOT NEEDED , BECAUSE OF CREATING OPTIONAL PARAMETERS IN THIS CASE

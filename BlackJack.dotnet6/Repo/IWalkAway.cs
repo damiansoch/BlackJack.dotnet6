@@ -1,0 +1,14 @@
+﻿using BlackJack.dotnet6.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BlackJack.dotnet6.Repo
+{
+     interface IWalkAway
+    {
+         void WalkAway(Player player);
+    }
+}
